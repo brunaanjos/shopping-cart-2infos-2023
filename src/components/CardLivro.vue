@@ -33,7 +33,7 @@ function formatarPreco(preco) {
 .card-livro {
   margin: 5px 10px;
   padding: 10px;
-  background-color: rgb(253, 227, 178);
+  background-color: rgb(255, 240, 212);
   border-radius: 10px;
   width: 180px;
   display: flex;
