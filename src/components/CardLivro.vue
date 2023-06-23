@@ -1,13 +1,15 @@
 <script setup>
 import MButton from './MButton.vue';
+import CartHeart from 'vue-material-design-icons/CartHeart.vue'
+import Share from 'vue-material-design-icons/Share.vue'
 
 const props = defineProps({
-    livro: Object
+  livro: Object
 })
 
 const emit = defineEmits(['adicionarAoCarrinho'])
-function adicionarAoCarrinho(livro){
-    emit('adicionarAoCarrinho', livro)
+function adicionarAoCarrinho(livro) {
+  emit('adicionarAoCarrinho', livro)
 }
 
 function formatarPreco(preco) {
@@ -16,21 +18,23 @@ function formatarPreco(preco) {
 </script>
 
 <template>
-    <div class="card-livro">
-        <div class="card-info-livro">
-            <div class="wrap-livro">
-                <img :src="props.livro.img" alt="Capa do livro" class="capa-livro" />
-            </div>
-            <p class="titulo-livro">{{ props.livro.title }}</p>
-            <p class="autor-livro">{{ props.livro.author }}</p>
-            <p class="preco-livro">{{ formatarPreco(props.livro.price) }}</p>
-        </div>
-        <div class="card-buttons-livros">
-            <m-button @click="emit('adicionarAoCarrinho' , props.livro)" text="Adicionar ao carrinho"></m-button>
-          
-            <m-button text="Compartilhar"/>
-        </div>
+  <div class="card-livro">
+    <div class="card-info-livro">
+      <div class="wrap-livro">
+        <img :src="props.livro.img" alt="Capa do livro" class="capa-livro" />
+      </div>
+      <p class="titulo-livro">{{ props.livro.title }}</p>
+      <p class="autor-livro">{{ props.livro.author }}</p>
+      <p class="preco-livro">{{ formatarPreco(props.livro.price) }}</p>
     </div>
+    <div class="card-buttons-livros">
+
+      <m-button class="secundario" @click="emit('adicionarAoCarrinho', props.livro)">
+        <cart-heart />
+      </m-button>
+      <m-button class="sucesso"> <share /> </m-button>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -54,6 +58,7 @@ function formatarPreco(preco) {
   width: 180px;
   height: 270px;
 }
+
 .capa-livro {
   width: 90%;
   max-height: 100%;

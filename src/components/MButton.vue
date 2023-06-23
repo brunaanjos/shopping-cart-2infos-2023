@@ -5,9 +5,16 @@ const props = defineProps({
 })
 </script>
 
-<template>
-    <button>{{ props.text }}</button>
+
+    <template>
+  <button>
+    <slot>
+      <button>{{ props.text }}</button>
+    </slot>
+  </button>
 </template>
+    
+
 
 <style scoped>
 button {

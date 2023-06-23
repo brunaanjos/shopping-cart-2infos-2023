@@ -1,4 +1,7 @@
 <script setup>
+import CartRemove from 'vue-material-design-icons/CartRemove.vue'
+import CartCheck from 'vue-material-design-icons/CartCheck.vue'
+import CheckOutline from 'vue-material-design-icons/CheckOutline.vue'
 import{
     carrinho,
     removerItemCarrinho,
@@ -16,7 +19,7 @@ import CarrinhoVazio from './CarrinhoVazio.vue';
       <h2>Meu carrinho</h2>
       <div class="wrap-carrinho">
         <carrinho-vazio v-if="carrinho.itens.length === 0"/>
-        <p v-if="carrinho.itens.length === 0">Seu carrinho está vazio</p>
+        <p v-if="carrinho.itens.length === 0"></p>
         <div v-else>
           <div class="item-carrinho" v-for="(item, index) in carrinho.itens" :key="index">
             <div class="info-livro">
@@ -45,10 +48,9 @@ import CarrinhoVazio from './CarrinhoVazio.vue';
             </div>
           </div>
         </div>
-        <m-button text="Limpar Carrinho"/>
-        <m-button text="Finalizar Compra"/>
-        <m-button text="Continuar Comprando"/>
-        <m-button text="Salvar"/>
+        <m-button> <cart-remove /> </m-button>
+        <m-button> <cart-check/> </m-button>
+        <m-button> <check-outline/> </m-button>
         <p class="carrinho-total">Total: {{ formatarPreco(carrinho.total) }}</p>
       </div>
     </div>
